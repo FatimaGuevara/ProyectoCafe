@@ -10,16 +10,16 @@
                 <div class="card">
                     <div class="card-header">
 
-                       <h2>Listado de productos</h2><br/>
+                       <h2>Listado de subcategorias</h2><br/>
                       
                         <button class="btn btn-primary btn-lg" type="button" data-toggle="modal" data-target="#abrirmodal">
-                            <i class="fa fa-plus fa-2x"></i>&nbsp;&nbsp;Agregar Producto
+                            <i class="fa fa-plus fa-2x"></i>&nbsp;&nbsp;Agregar Subcategoria
                         </button>
                     </div>
                     <div class="card-body">
                         <div class="form-group row">
                             <div class="col-md-6">
-                            {!! Form::open(array('url'=>'producto','method'=>'GET','autocomplete'=>'off','role'=>'search')) !!}
+                            {!! Form::open(array('url'=>'subcategoria','method'=>'GET','autocomplete'=>'off','role'=>'search')) !!}
                                 <div class="input-group">
                                     <input type="text" name="buscarTexto" class="form-control" placeholder="Buscar texto" value="{{$buscarTexto}}">
                                     <button type="submit"  class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
@@ -32,7 +32,6 @@
                                 <tr class="bg-primary">
                                     <th>Categoria</th>
                                     <th>Nombre</th>
-                                    <th>Precio</th>
                                     <th>Descripcion</th>
                                     <th>Imagen</th>
                                     <th>Accion</th>
@@ -40,23 +39,22 @@
                             </thead>
                             <tbody>
                                
-                                @foreach($productos as $prod)
+                                @foreach($subcategorias as $subcate)
                                 <tr>
                                     
-                                    <td>{{$prod->subcategoria_id}}</td>
-                                    <td>{{$prod->nombre}}</td>
-                                    <td>{{$prod->precio}}</td>
-                                    <td>{{$prod->descripcion}}</td>
+                                    <td>{{$subcate->categoria_id}}</td>
+                                    <td>{{$subcate->nombre}}</td>
+                                    <td>{{$subcate->descripcion}}</td>
                                     
                                     <td>
-                                         <img src="{{asset('storage/img/producto/'.$prod->imagen)}}" id="imagen1" alt="{{$prod->nombre}}" class="img-responsive" width="100px" height="100px">
+                                         <img src="{{asset('storage/img/subcategoria/'.$subcate->imagen)}}" id="imagen1" alt="{{$subcate->nombre}}" class="img-responsive" width="100px" height="100px">
                                     </td>
 
                                     <td>
-                                        <button type="button" class="btn btn-info btn-md" data-id_producto="{{$prod->id}}" data-subcategoria_id="{{$prod->subcategoria_id}}" data-nombre="{{$prod->nombre}}" data-precio="{{$prod->precio}}" data-descripcion="{{$prod->descripcion}}" data-toggle="modal" data-target="#abrirmodalEditar">
+                                        <button type="button" class="btn btn-info btn-md" data-id_subcategoria="{{$subcate->id}}" data-categoria_id="{{$subcate->categoria_id}}" data-nombre="{{$subcate->nombre}}" data-descripcion="{{$subcate->descripcion}}" data-toggle="modal" data-target="#abrirmodalEditar">
                                           <i class="fa fa-edit fa-2x"></i> Editar
                                         </button> &nbsp;
-                                        <button type="button" class="btn btn-danger btn-sm" data-id_producto="{{$prod->id}}" data-toggle="modal" data-target="#cambiarEstado">
+                                        <button type="button" class="btn btn-danger btn-sm" data-id_subcategoria="{{$subcate->id}}" data-toggle="modal" data-target="#cambiarEstado">
                                             <i class="fa fa-times fa-2x" ></i>Eliminar
                                         </button> &nbsp;
                                     </td>
@@ -66,7 +64,7 @@
                             </tbody>
                         </table>
                         
-                        {{$productos->render()}}
+                        {{$subcategorias->render()}}
 
                     </div>
                 </div>
@@ -77,17 +75,17 @@
                 <div class="modal-dialog modal-primary modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title">Agregar Producto</h4>
+                            <h4 class="modal-title">Agregar subcategoria</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                               <span aria-hidden="true">×</span>
                             </button>
                         </div>
                        
                         <div class="modal-body">
-                            <form action="{{route('producto.store')}}" method="post" class="form-horizontal" enctype="multipart/form-data">
+                            <form action="{{route('subcategoria.store')}}" method="post" class="form-horizontal" enctype="multipart/form-data">
                                 
                                 {{csrf_field()}}
-                                @include('producto.form')
+                                @include('subcategoria.form')
 
                             </form>
                         </div>
@@ -104,21 +102,21 @@
                 <div class="modal-dialog modal-primary modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title">Actualizar Producto</h4>
+                            <h4 class="modal-title">Actualizar subcategoria</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                               <span aria-hidden="true">×</span>
                             </button>
                         </div>
                        
                         <div class="modal-body">
-                            <form action="{{route('producto.update','test')}}" method="post" class="form-horizontal" enctype="multipart/form-data">
+                            <form action="{{route('subcategoria.update','test')}}" method="post" class="form-horizontal" enctype="multipart/form-data">
                                 
                                 {{method_field('patch')}}
                                 {{csrf_field()}}
 
-                                <input type="hidden" id="id_producto" name="id_producto" value="">
+                                <input type="hidden" id="id_subcategoria" name="id_subcategoria" value="">
 
-                                @include('producto.form')
+                                @include('subcategoria.form')
 
                             </form>
                         </div>
@@ -135,17 +133,17 @@
                 <div class="modal-dialog modal-danger" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title">Eliminar Producto</h4>
+                            <h4 class="modal-title">Eliminar subcategoria</h4>
                         </div>
 
                     <div class="modal-body">
-                        <form action="{{route('producto.destroy','test')}}" method="POST">
+                        <form action="{{route('subcategoria.destroy','test')}}" method="POST">
                          {{method_field('delete')}}
                          {{csrf_field()}} 
 
-                            <input type="hidden" id="id_producto" name="id_producto" value="">
+                            <input type="hidden" id="id_subcategoria" name="id_subcategoria" value="">
 
-                                <p>Estas seguro de Eliminar este producto?</p>
+                                <p>Estas seguro de Eliminar esta subcategoria?</p>
         
 
                             <div class="modal-footer">

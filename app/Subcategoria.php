@@ -8,6 +8,8 @@ class Subcategoria extends Model
 {
     public $table = "subcategorias";
 
+    protected $fillable = ['categoria_id','nombre','imagen','descripcion'];
+
     public function producto()
     {
         return $this->hasMany('App\Producto');
