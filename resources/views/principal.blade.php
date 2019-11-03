@@ -27,7 +27,7 @@
         </button>
         <ul class="nav navbar-nav d-md-down-none">
             <li class="nav-item px-3">
-                <a class="nav-link" href="#">Dashbord</a>
+                <a class="nav-link" href="#">Proyecto Cafe</a>
             </li>
            
         </ul>
@@ -60,7 +60,7 @@
             <nav class="sidebar-nav">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#"><i class="icon-speedometer"></i> Dashbord</a>
+                        <a class="nav-link active" href="#"><i class="icon-speedometer"></i> Proyecto Cafe</a>
                     </li>
                     <li class="nav-title">
                         Menú
