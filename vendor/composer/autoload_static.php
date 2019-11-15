@@ -19,11 +19,11 @@ class ComposerStaticInitaf8a6de4b6749caea1aee9785c594535
         '9cdd7b9056abc3081735233ba9dd9c7f' => __DIR__ . '/..' . '/facade/flare-client-php/src/helpers.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
+        'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         'b6ec61354e97f32c0ae683041c78392a' => __DIR__ . '/..' . '/scrivo/highlight.php/HighlightUtilities/functions.php',
         'ed962a97bd972bc82007176b647d4e36' => __DIR__ . '/..' . '/facade/ignition/src/helpers.php',
-        'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -136,6 +136,7 @@ class ComposerStaticInitaf8a6de4b6749caea1aee9785c594535
         ),
         'A' => 
         array (
+            'Appzcoder\\CrudGenerator\\' => 24,
             'App\\' => 4,
         ),
     );
@@ -367,6 +368,10 @@ class ComposerStaticInitaf8a6de4b6749caea1aee9785c594535
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
         ),
+        'Appzcoder\\CrudGenerator\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/appzcoder/crud-generator/src',
+        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
@@ -406,7 +411,10 @@ class ComposerStaticInitaf8a6de4b6749caea1aee9785c594535
     );
 
     public static $classMap = array (
+        'App\\Categoria' => __DIR__ . '/../..' . '/app/Categoria.php',
+        'App\\Comentario' => __DIR__ . '/../..' . '/app/Comentario.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+        'App\\Evento' => __DIR__ . '/../..' . '/app/Evento.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
@@ -414,6 +422,7 @@ class ComposerStaticInitaf8a6de4b6749caea1aee9785c594535
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
+        'App\\Http\\Controllers\\Categoria' => __DIR__ . '/../..' . '/app/Http/Controllers/ProductoCategoria.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\ProductoController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProductoController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
@@ -430,7 +439,20 @@ class ComposerStaticInitaf8a6de4b6749caea1aee9785c594535
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\Rol' => __DIR__ . '/../..' . '/app/Rol.php',
+        'App\\Subcategoria' => __DIR__ . '/../..' . '/app/Subcategoria.php',
+        'App\\Tipo' => __DIR__ . '/../..' . '/app/Tipo.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
+        'App\\Usuario' => __DIR__ . '/../..' . '/app/Usuario.php',
+        'Appzcoder\\CrudGenerator\\Commands\\CrudApiCommand' => __DIR__ . '/..' . '/appzcoder/crud-generator/src/Commands/CrudApiCommand.php',
+        'Appzcoder\\CrudGenerator\\Commands\\CrudApiControllerCommand' => __DIR__ . '/..' . '/appzcoder/crud-generator/src/Commands/CrudApiControllerCommand.php',
+        'Appzcoder\\CrudGenerator\\Commands\\CrudCommand' => __DIR__ . '/..' . '/appzcoder/crud-generator/src/Commands/CrudCommand.php',
+        'Appzcoder\\CrudGenerator\\Commands\\CrudControllerCommand' => __DIR__ . '/..' . '/appzcoder/crud-generator/src/Commands/CrudControllerCommand.php',
+        'Appzcoder\\CrudGenerator\\Commands\\CrudLangCommand' => __DIR__ . '/..' . '/appzcoder/crud-generator/src/Commands/CrudLangCommand.php',
+        'Appzcoder\\CrudGenerator\\Commands\\CrudMigrationCommand' => __DIR__ . '/..' . '/appzcoder/crud-generator/src/Commands/CrudMigrationCommand.php',
+        'Appzcoder\\CrudGenerator\\Commands\\CrudModelCommand' => __DIR__ . '/..' . '/appzcoder/crud-generator/src/Commands/CrudModelCommand.php',
+        'Appzcoder\\CrudGenerator\\Commands\\CrudViewCommand' => __DIR__ . '/..' . '/appzcoder/crud-generator/src/Commands/CrudViewCommand.php',
+        'Appzcoder\\CrudGenerator\\CrudGeneratorServiceProvider' => __DIR__ . '/..' . '/appzcoder/crud-generator/src/CrudGeneratorServiceProvider.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonImmutable' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonImmutable.php',
         'Carbon\\CarbonInterface' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterface.php',
@@ -481,6 +503,7 @@ class ComposerStaticInitaf8a6de4b6749caea1aee9785c594535
         'Cron\\HoursField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/HoursField.php',
         'Cron\\MinutesField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MinutesField.php',
         'Cron\\MonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MonthField.php',
+        'CrudGeneratorTest' => __DIR__ . '/..' . '/appzcoder/crud-generator/tests/CrudGeneratorTest.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'DeepCopy\\DeepCopy' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',
         'DeepCopy\\Exception\\CloneException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/CloneException.php',
@@ -2076,6 +2099,7 @@ class ComposerStaticInitaf8a6de4b6749caea1aee9785c594535
         'JakubOnderka\\PhpConsoleColor\\InvalidStyleException' => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src/InvalidStyleException.php',
         'JakubOnderka\\PhpConsoleHighlighter\\Highlighter' => __DIR__ . '/..' . '/jakub-onderka/php-console-highlighter/src/Highlighter.php',
         'JsonException' => __DIR__ . '/..' . '/symfony/polyfill-php73/Resources/stubs/JsonException.php',
+        'Kernel' => __DIR__ . '/..' . '/appzcoder/crud-generator/tests/Kernel.php',
         'Laravel\\Tinker\\ClassAliasAutoloader' => __DIR__ . '/..' . '/laravel/tinker/src/ClassAliasAutoloader.php',
         'Laravel\\Tinker\\Console\\TinkerCommand' => __DIR__ . '/..' . '/laravel/tinker/src/Console/TinkerCommand.php',
         'Laravel\\Tinker\\TinkerCaster' => __DIR__ . '/..' . '/laravel/tinker/src/TinkerCaster.php',
@@ -4117,6 +4141,7 @@ class ComposerStaticInitaf8a6de4b6749caea1aee9785c594535
         'Symfony\\Polyfill\\Mbstring\\Mbstring' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/Mbstring.php',
         'Symfony\\Polyfill\\Php72\\Php72' => __DIR__ . '/..' . '/symfony/polyfill-php72/Php72.php',
         'Symfony\\Polyfill\\Php73\\Php73' => __DIR__ . '/..' . '/symfony/polyfill-php73/Php73.php',
+        'TestCase' => __DIR__ . '/..' . '/appzcoder/crud-generator/tests/TestCase.php',
         'Tests\\CreatesApplication' => __DIR__ . '/../..' . '/tests/CreatesApplication.php',
         'Tests\\Feature\\ExampleTest' => __DIR__ . '/../..' . '/tests/Feature/ExampleTest.php',
         'Tests\\TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',

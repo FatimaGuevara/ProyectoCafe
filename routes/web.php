@@ -21,3 +21,4 @@ Route::get('/admin', function(){
 });
 
 Route::resource('producto', 'ProductoController');
+Route::resource('categorias', 'categoriasController');
