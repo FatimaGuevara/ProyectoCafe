@@ -60,8 +60,7 @@ class SubcategoriaController extends Controller
         $subcategoria = new Subcategoria();
         $subcategoria->categoria_id = $request->id;
         $subcategoria->nombre = $request->nombre;
-        $subcategoria->descripcion = $request->descripcion;
-
+        
         //Handle File Upload
         if ($request->hasFile('imagen')) {
             //Get filename with the extension
@@ -78,6 +77,8 @@ class SubcategoriaController extends Controller
             $fileNameToStore = "noimagen.jpg";
         }
         $subcategoria->imagen = $fileNameToStore;
+
+        $subcategoria->descripcion = $request->descripcion;
 
         $subcategoria->save();
         return Redirect::to("subcategoria");

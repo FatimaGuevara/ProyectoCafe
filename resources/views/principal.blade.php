@@ -70,6 +70,14 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#"><i class="fa fa-list"></i> Categorías</a>
                     </li>
+
+                    <li class="nav-item">
+                            <a class="nav-link" href="{{url('subcategoria')}}" onclick="event.preventDefault(); document.getElementById('subcategoria-form').submit();"><i class="fa fa-list"></i> Subcategoria</a>
+                            
+                            <form id="subcategoria-form" action="{{url('subcategoria')}}" method="GET" style="display: none;">
+                            {{csrf_field()}} 
+                            </form>
+                    </li>
                     
                     <li class="nav-item">
                             <a class="nav-link" href="{{url('producto')}}" onclick="event.preventDefault(); document.getElementById('producto-form').submit();"><i class="fa fa-list"></i> Productos</a>
@@ -175,7 +183,39 @@
    /*FIN ventana modal para cambiar estado del producto*/
 
 
+     /*EDITAR SUBCATEGORIA EN VENTANA MODAL*/
+    $('#abrirmodalEditar').on('show.bs.modal', function (event) {
+        
+    //console.log('modal abierto');
+        
+    var button = $(event.relatedTarget) 
+    var categoria_id_modal_editar = button.data('categoria_id')
+    var nombre_modal_editar = button.data('nombre')
+    var descripcion_modal_editar = button.data('descripcion')
+    var id_subcategoria = button.data('id_subcategoria')
+    var modal = $(this)
+        
+    modal.find('.modal-body #id').val(categoria_id_modal_editar);
+    modal.find('.modal-body #nombre').val(nombre_modal_editar);
+    modal.find('.modal-body #descripcion').val(descripcion_modal_editar);
+    modal.find('.modal-body #id_subcategoria').val(id_subcategoria);
+    })
 
+
+    /******************************************************/
+    /*INICIO ventana modal para cambiar estado de Subcategoria*/
+        
+    $('#cambiarEstado').on('show.bs.modal', function (event) {
+
+        
+    var button = $(event.relatedTarget) 
+    var id_subcategoria = button.data('id_subcategoria')
+    var modal = $(this)
+        
+    modal.find('.modal-body #id_subcategoria').val(id_subcategoria);
+    })
+         
+    /*FIN ventana modal para cambiar estado de la subcategoria*/
 </script>
 
 </body>
