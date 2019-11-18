@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
     return view('principal');
 });
@@ -19,6 +21,8 @@ Route::get('/admin', function(){
     return view('plantilla.dashboard');
 
 });
-
-Route::resource('producto', 'ProductoController');
 Route::resource('categorias', 'categoriasController');
+Route::resource('producto', 'ProductoController');
+
+Route::resource('subcategoria', 'SubcategoriaController');
+
