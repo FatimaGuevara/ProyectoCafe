@@ -9,7 +9,7 @@
                 
                 @foreach($categorias as $cat)
                   
-                   <option value="{{$cat->id}}">{{$cat->nombre}}</option>
+                   <option value="{{$loop->iteration}}">{{$cat->nombre}}</option>
                         
                 @endforeach
 
