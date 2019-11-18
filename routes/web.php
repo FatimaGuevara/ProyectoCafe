@@ -21,6 +21,8 @@ Route::get('/admin', function(){
     return view('plantilla.dashboard');
 
 });
-
+Route::resource('categorias', 'categoriasController');
 Route::resource('producto', 'ProductoController');
+
 Route::resource('subcategoria', 'SubcategoriaController');
+

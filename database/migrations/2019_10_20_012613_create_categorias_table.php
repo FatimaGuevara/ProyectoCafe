@@ -15,11 +15,9 @@ class CreateCategoriasTable extends Migration
     {
         Schema::create('categorias', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('rol_id')->unsigned();
-            $table->foreign('rol_id')->references('id')->on('roles')->onDelete('cascade');
-            $table->string('nombre');
             $table->timestamps();
-        });
+            $table->string('nombre')->nullable();
+            });
     }
 
     /**
