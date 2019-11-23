@@ -37,7 +37,7 @@
                                 <tbody>
                                 @foreach($categorias as $item)
                                     <tr>
-                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $item->id }} </td>
                                         <td>{{ $item->nombre }}</td>
                                         <td>
                                             <a href="{{ url('/categorias/' . $item->id) }}" title="View categoria"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> Ver</button></a>
