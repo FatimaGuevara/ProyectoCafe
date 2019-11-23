@@ -32,7 +32,9 @@ class SubcategoriaController extends Controller
 
             /*listar las categorias en ventana modal*/
             $categorias = DB::table('categorias')
-                ->select('nombre')->get();
+
+                ->select('id', 'nombre')->get();
+
 
             return view('subcategoria.index', ["subcategorias" => $subcategorias, "categorias" => $categorias, "buscarTexto" => $sql]);
 

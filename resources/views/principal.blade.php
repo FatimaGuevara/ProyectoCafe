@@ -68,7 +68,11 @@
 
                    
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa fa-list"></i> Categorías</a>
+                            <a class="nav-link" href="{{url('categorias')}}" onclick="event.preventDefault(); document.getElementById('categorias-form').submit();"><i class="fa fa-list"></i> Categoria</a>
+                            
+                            <form id="categorias-form" action="{{url('categorias')}}" method="GET" style="display: none;">
+                            {{csrf_field()}} 
+                            </form>
                     </li>
                     
                     <li class="nav-item">
