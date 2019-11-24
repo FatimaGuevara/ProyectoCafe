@@ -3,119 +3,123 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
-
-use App\categoria;
 use Illuminate\Http\Request;
+use App\Categoria;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
+use DB;
+Use Exception;
+use Auth;
 
 class categoriasController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\View\View
+     * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
     {
-        $keyword = $request->get('search');
-        $perPage = 25;
+        //
+        if ($request) {
 
-        if (!empty($keyword)) {
-            $categorias = categoria::where('nombre', 'LIKE', "%$keyword%")
-                ->latest()->paginate($perPage);
-        } else {
-            $categorias = categoria::latest()->paginate($perPage);
+            $sql = trim($request->get('buscarTexto'));
+            $categorias = DB::table('categorias as c')
+
+                ->select('c.id', 'c.nombre')
+                ->where('c.nombre', 'LIKE', '%' . $sql . '%')
+                ->orderBy('c.id', 'desc')
+                ->paginate(5);
+
+
+            return view('categorias.index', ["categorias" => $categorias, "buscarTexto" => $sql]);
+
         }
-
-        return view('categorias.index', compact('categorias'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\View\View
+     * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        return view('categorias.create');
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        
-        $requestData = $request->except('_token');
-        
-        categoria::create($requestData);
+        //
+        $categorias = new Categoria();
+        $categorias->nombre = $request->nombre;
 
-        return redirect('categorias')->with('flash_message', 'categoria agregada!');
+        //Handle File Upload
+
+
+        $categorias->save();
+        return Redirect::to("categorias");
     }
 
     /**
      * Display the specified resource.
      *
      * @param  int  $id
-     *
-     * @return \Illuminate\View\View
+     * @return \Illuminate\Http\Response
      */
-
     public function show($id)
     {
-        $categoria = categoria::findOrFail($id);
-
-        return view('categorias.show', compact('categoria'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     *
-     * @return \Illuminate\View\View
+     * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $categoria = categoria::findOrFail($id);
-
-        return view('categorias.edit', compact('categoria'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     *
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        
-        $requestData = $request->all();
-        
-        $categoria = categoria::findOrFail($id);
-        $categoria->update($requestData);
+        //
+        $categorias = Categoria::findOrFail($request->id_categorias);
+        $categorias->nombre = $request->nombre;
 
-        return redirect('categorias')->with('flash_message', 'categoria actualizada!');
+
+        $categorias->save();
+        return Redirect::to("categorias");
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     *
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        categoria::destroy($id);
-
-        return redirect('categorias')->with('flash_message', 'categoria eliminada!');
+        //
+        try{
+            $categorias = Categoria::findOrFail($request->id)->delete();
+            return Redirect::to("categorias")->with("success","Categoria eliminado con exito");
+        } catch  (\Illuminate\Database\QueryException $e){
+            return Redirect::to("categorias")->with("danger","No se puede eliminar este registro porque esta asociado con otra asignación");
+        }
     }
 }
