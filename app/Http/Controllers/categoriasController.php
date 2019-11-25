@@ -116,7 +116,7 @@ class categoriasController extends Controller
     {
         //
         try{
-            $categorias = Categoria::findOrFail($request->id)->delete();
+            $categorias = Categoria::findOrFail($request->id_categorias)->delete();
             return Redirect::to("categorias")->with("success","Categoria eliminado con exito");
         } catch  (\Illuminate\Database\QueryException $e){
             return Redirect::to("categorias")->with("danger","No se puede eliminar este registro porque esta asociado con otra asignación");

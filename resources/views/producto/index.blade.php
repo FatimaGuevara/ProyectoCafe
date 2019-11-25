@@ -53,7 +53,7 @@
                                     </td>
 
                                     <td>
-                                        <button type="button" class="btn btn-info btn-md" data-id_producto="{{$prod->id}}" data-subcategoria_id="{{$prod->subcategoria_id}}" data-nombre="{{$prod->nombre}}" data-precio="{{$prod->precio}}" data-descripcion="{{$prod->descripcion}}" data-toggle="modal" data-target="#abrirmodalEditar">
+                                        <button type="button" class="btn btn-info btn-md" data-id_producto="{{$prod->id}}" data-subcategoria_id="{{$prod->subcategoria_id}}" data-nombre="{{$prod->nombre}}" data-precio="{{$prod->precio}}" data-descripcion="{{$prod->descripcion}}" data-toggle="modal" data-target="#abrirmodalEditarpro">
                                           <i class="fa fa-edit fa-2x"></i> Editar
                                         </button> &nbsp;
                                         <button type="button" class="btn btn-danger btn-sm" data-id_producto="{{$prod->id}}" data-toggle="modal" data-target="#cambiarEstado">
@@ -100,7 +100,7 @@
             <!--Fin del modal-->
 
             <!--Inicio del modal actualizar-->
-            <div class="modal fade" id="abrirmodalEditar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+            <div class="modal fade" id="abrirmodalEditarpro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
                 <div class="modal-dialog modal-primary modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">

@@ -29,7 +29,7 @@ class ProductoController extends Controller
                 ->select('p.id', 'p.subcategoria_id', 'p.nombre', 'p.precio', 'p.descripcion', 'p.imagen', 'c.nombre as subcategoria')
                 ->where('p.nombre', 'LIKE', '%' . $sql . '%')
                 ->orderBy('p.id', 'desc')
-                ->paginate(5);
+                ->paginate(10);
 
             /*listar las categorias en ventana modal*/
             $subcategorias = DB::table('subcategorias')

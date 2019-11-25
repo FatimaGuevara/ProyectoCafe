@@ -23,6 +23,11 @@ Route::get('/admin', function(){
 });
 Route::resource('categorias', 'categoriasController');
 Route::resource('producto', 'ProductoController');
-
 Route::resource('subcategoria', 'SubcategoriaController');
+Route::resource('usuario', 'UsuarioController');
 
+
+/*Route::get('/','Auth\LoginController@showLoginForm');
+Route::post('/login', 'Auth\LoginController@login')->name('login');*/
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -51,7 +51,7 @@
                                     </td>
 
                                     <td>
-                                        <button type="button" class="btn btn-info btn-md" data-id_subcategoria="{{$subcate->id}}" data-categoria_id="{{$subcate->categoria_id}}" data-nombre="{{$subcate->nombre}}" data-descripcion="{{$subcate->descripcion}}" data-toggle="modal" data-target="#abrirmodalEditar">
+                                        <button type="button" class="btn btn-info btn-md" data-id_subcategoria="{{$subcate->id}}" data-categoria_id="{{$subcate->categoria_id}}" data-nombre="{{$subcate->nombre}}" data-descripcion="{{$subcate->descripcion}}" data-toggle="modal" data-target="#abrirmodalEditarsub">
                                           <i class="fa fa-edit fa-2x"></i> Editar
                                         </button> &nbsp;
                                         <button type="button" class="btn btn-danger btn-sm" data-id_subcategoria="{{$subcate->id}}" data-toggle="modal" data-target="#cambiarEstado">
@@ -98,7 +98,7 @@
             <!--Fin del modal-->
 
             <!--Inicio del modal actualizar-->
-            <div class="modal fade" id="abrirmodalEditar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+            <div class="modal fade" id="abrirmodalEditarsub" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
                 <div class="modal-dialog modal-primary modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">

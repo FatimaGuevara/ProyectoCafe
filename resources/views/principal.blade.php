@@ -16,20 +16,20 @@
 </head>
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
-<header class="app-header navbar">
+    <header class="app-header navbar">
         <button class="navbar-toggler mobile-sidebar-toggler d-lg-none mr-auto" type="button">
-          <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
         </button>
         <!--PONER LOGO-->
         <!--<a class="navbar-brand" href="#"></a>-->
         <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button">
-          <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
         </button>
         <ul class="nav navbar-nav d-md-down-none">
             <li class="nav-item px-3">
                 <a class="nav-link" href="#">Proyecto Cafe</a>
             </li>
-           
+
         </ul>
         <ul class="nav navbar-nav ml-auto">
 
@@ -42,12 +42,11 @@
                     <div class="dropdown-header text-center">
                         <strong>Cuenta</strong>
                     </div>
-                    <a class="dropdown-item" href="" 
-                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    <i class="fa fa-lock"></i> Cerrar sesión</a>
+                    <a class="dropdown-item" href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <i class="fa fa-lock"></i> Cerrar sesión</a>
 
                     <form id="logout-form" action="" method="POST" style="display: none;">
-                      
+
                     </form>
                 </div>
             </li>
@@ -56,7 +55,7 @@
 
     <div class="app-body">
 
-       <div class="sidebar">
+        <div class="sidebar">
             <nav class="sidebar-nav">
                 <ul class="nav">
                     <li class="nav-item">
@@ -66,60 +65,56 @@
                         Menú
                     </li>
 
-                   
+
                     <li class="nav-item">
-                            <a class="nav-link" href="{{url('categorias')}}" onclick="event.preventDefault(); document.getElementById('categorias-form').submit();"><i class="fa fa-list"></i> Categoria</a>
-                            
-                            <form id="categorias-form" action="{{url('categorias')}}" method="GET" style="display: none;">
-                            {{csrf_field()}} 
-                            </form>
-                    </li>
-                    
-                    <li class="nav-item">
-                            <a class="nav-link" href="{{url('producto')}}" onclick="event.preventDefault(); document.getElementById('producto-form').submit();"><i class="fa fa-list"></i> Productos</a>
-                            
-                            <form id="producto-form" action="{{url('producto')}}" method="GET" style="display: none;">
-                            {{csrf_field()}} 
-                            </form>
-                    </li>
-                      
-            
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa fa-shopping-cart"></i> Compras</a>
+                        <a class="nav-link" href="{{url('categorias')}}" onclick="event.preventDefault(); document.getElementById('categorias-form').submit();"><i class="fa fa-list"></i> Categoria</a>
+
+                        <form id="categorias-form" action="{{url('categorias')}}" method="GET" style="display: none;">
+                            {{csrf_field()}}
+                        </form>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa fa-users"></i> Proveedores</a>
-                    </li>
-                       
-                   
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa fa-suitcase"></i> Ventas</a>
+                        <a class="nav-link" href="{{url('subcategoria')}}" onclick="event.preventDefault(); document.getElementById('subcategoria-form').submit();"><i class="fa fa-list"></i> SubCategoria</a>
+
+                        <form id="subcategoria-form" action="{{url('subcategoria')}}" method="GET" style="display: none;">
+                            {{csrf_field()}}
+                        </form>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa fa-users"></i> Clientes</a>
-                    </li>
-                        
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa fa-user"></i> Usuarios</a>
+                        <a class="nav-link" href="{{url('producto')}}" onclick="event.preventDefault(); document.getElementById('producto-form').submit();"><i class="fa fa-list"></i> Productos</a>
+
+                        <form id="producto-form" action="{{url('producto')}}" method="GET" style="display: none;">
+                            {{csrf_field()}}
+                        </form>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa fa-list"></i> Roles</a>
+                        <a class="nav-link" href="{{url('usuario')}}" onclick="event.preventDefault(); document.getElementById('usuario-form').submit();"><i class="fa fa-users"></i> Usuarios</a>
+
+                        <form id="usuario-form" action="{{url('usuario')}}" method="GET" style="display: none;">
+                            {{csrf_field()}}
+                        </form>
                     </li>
-                        
-                    
+
+                    <!--li class="nav-item">
+                        <a class="nav-link" href="{{url('login')}}" onclick="event.preventDefault(); document.getElementById('login-form').submit();"><i class="fa fa-users"></i> Login</a>
+
+                        <form id="usuario-form" action="{{url('login')}}" method="GET" style="display: none;">
+                            {{csrf_field()}}
+                        </form>
+                    </li-->
+
                 </ul>
             </nav>
             <button class="sidebar-minimizer brand-minimizer" type="button"></button>
         </div>
 
         <!-- Contenido Principal -->
-            @yield('contenido')
+        @yield('contenido')
         <!-- /Fin del contenido principal -->
-    </div>   
+    </div>
 
     <footer class="app-footer">
         <span><a href="http://www.webtraining-it.com/">webtraining-it.com</a> &copy; 2019</span>
@@ -137,50 +132,146 @@
     <script src="{{asset('js/template.js')}}"></script>
 
     <script>
+        /*EDITAR SUBCATEGORIA EN VENTANA MODAL*/
+        $('#abrirmodalEditarsub').on('show.bs.modal', function(event) {
 
-    /*EDITAR PRODUCTO EN VENTANA MODAL*/
-    $('#abrirmodalEditar').on('show.bs.modal', function (event) {
-   
-   //console.log('modal abierto');
-   /*el button.data es lo que está en el button de editar*/
-   var button = $(event.relatedTarget)
-   /*este id_categoria_modal_editar selecciona la categoria*/
-   var subcategoria_id_modal_editar = button.data('subcategoria_id')
-   var nombre_modal_editar = button.data('nombre')
-   var precio_modal_editar = button.data('precio')
-   var descripcion_modal_editar = button.data('descripcion')
-   //var imagen_modal_editar = button.data('imagen1')
-   var id_producto = button.data('id_producto')
-   var modal = $(this)
-   // modal.find('.modal-title').text('New message to ' + recipient)
-   /*los # son los id que se encuentran en el formulario*/
-   modal.find('.modal-body #id').val(subcategoria_id_modal_editar);
-   modal.find('.modal-body #nombre').val(nombre_modal_editar);
-   modal.find('.modal-body #precio').val(precio_modal_editar);
-   modal.find('.modal-body #descripcion').val(descripcion_modal_editar);
-  // modal.find('.modal-body #subirImagen').html("<img src="img/producto/imagen_modal_editar">");
-   modal.find('.modal-body #id_producto').val(id_producto);
-   })
+            //console.log('modal abierto');
 
-   /*INICIO ventana modal para cambiar el estado del producto*/
-   
-   $('#cambiarEstado').on('show.bs.modal', function (event) {
-   
-   //console.log('modal abierto');
-   
-   var button = $(event.relatedTarget) 
-   var id_producto = button.data('id_producto')
-   var modal = $(this)
-   // modal.find('.modal-title').text('New message to ' + recipient)
-   
-   modal.find('.modal-body #id_producto').val(id_producto);
-   })
-    
-   /*FIN ventana modal para cambiar estado del producto*/
+            var button = $(event.relatedTarget)
+            var categoria_id_modal_editar = button.data('categoria_id')
+            var nombre_modal_editar = button.data('nombre')
+            var descripcion_modal_editar = button.data('descripcion')
+            var id_subcategoria = button.data('id_subcategoria')
+            var modal = $(this)
+
+            modal.find('.modal-body #id').val(categoria_id_modal_editar);
+            modal.find('.modal-body #nombre').val(nombre_modal_editar);
+            modal.find('.modal-body #descripcion').val(descripcion_modal_editar);
+            modal.find('.modal-body #id_subcategoria').val(id_subcategoria);
+        })
 
 
+        /******************************************************/
+        /*INICIO ventana modal para cambiar estado de Subcategoria*/
 
-</script>
+        $('#cambiarEstado').on('show.bs.modal', function(event) {
+
+
+            var button = $(event.relatedTarget)
+            var id_subcategoria = button.data('id_subcategoria')
+            var modal = $(this)
+
+            modal.find('.modal-body #id_subcategoria').val(id_subcategoria);
+        })
+
+        /*FIN ventana modal para cambiar estado de la subcategoria*/
+
+        /*EDITAR PRODUCTO EN VENTANA MODAL*/
+        $('#abrirmodalEditarpro').on('show.bs.modal', function(event) {
+
+            //console.log('modal abierto');
+            /*el button.data es lo que está en el button de editar*/
+            var button = $(event.relatedTarget)
+            /*este id_categoria_modal_editar selecciona la subcategoria*/
+            var subcategoria_id_modal_editar = button.data('subcategoria_id')
+            var nombre_modal_editar = button.data('nombre')
+            var precio_modal_editar = button.data('precio')
+            var descripcion_modal_editar = button.data('descripcion')
+            //var imagen_modal_editar = button.data('imagen1')
+            var id_producto = button.data('id_producto')
+            var modal = $(this)
+            // modal.find('.modal-title').text('New message to ' + recipient)
+            /*los # son los id que se encuentran en el formulario*/
+            modal.find('.modal-body #id').val(subcategoria_id_modal_editar);
+            modal.find('.modal-body #nombre').val(nombre_modal_editar);
+            modal.find('.modal-body #precio').val(precio_modal_editar);
+            modal.find('.modal-body #descripcion').val(descripcion_modal_editar);
+            // modal.find('.modal-body #subirImagen').html("<img src="img/producto/imagen_modal_editar">");
+            modal.find('.modal-body #id_producto').val(id_producto);
+        })
+
+        /*INICIO ventana modal para cambiar el estado del producto*/
+
+        $('#cambiarEstado').on('show.bs.modal', function(event) {
+
+            //console.log('modal abierto');
+
+            var button = $(event.relatedTarget)
+            var id_producto = button.data('id_producto')
+            var modal = $(this)
+            // modal.find('.modal-title').text('New message to ' + recipient)
+
+            modal.find('.modal-body #id_producto').val(id_producto);
+        })
+
+        /*FIN ventana modal para cambiar estado del producto*/
+
+        /*EDITAR USUARIO EN VENTANA MODAL*/
+        $('#abrirmodalEditarusu').on('show.bs.modal', function(event) {
+
+            //console.log('modal abierto');
+            /*el button.data es lo que está en el button de editar*/
+            var button = $(event.relatedTarget)
+            var nombre_modal_editar = button.data('nombre')
+            var email_modal_editar = button.data('email')
+            /*este rol_id_modal_editar selecciona el rol*/
+            var rol_id_modal_editar = button.data('rol_id')
+            var id_usuario = button.data('id_usuario')
+            var modal = $(this)
+            // modal.find('.modal-title').text('New message to ' + recipient)
+            /*los # son los id que se encuentran en el formulario*/
+            modal.find('.modal-body #nombre').val(nombre_modal_editar);
+            modal.find('.modal-body #email').val(email_modal_editar);
+            modal.find('.modal-body #id').val(rol_id_modal_editar);
+            // modal.find('.modal-body #subirImagen').html("<img src="img/producto/imagen_modal_editar">");
+            modal.find('.modal-body #id_usuario').val(id_usuario);
+        })
+
+        /*INICIO ventana modal para cambiar el estado del usuario*/
+
+        $('#cambiarEstado').on('show.bs.modal', function(event) {
+
+            //console.log('modal abierto');
+
+            var button = $(event.relatedTarget)
+            var id_usuario = button.data('id_usuario')
+            var modal = $(this)
+            // modal.find('.modal-title').text('New message to ' + recipient)
+
+            modal.find('.modal-body #id_usuario').val(id_usuario);
+        })
+
+        /*FIN ventana modal para cambiar estado del usuario*/
+
+        /*EDITAR CATEGORIA EN VENTANA MODAL*/
+        $('#abrirmodalEditarcat').on('show.bs.modal', function(event) {
+
+            //console.log('modal abierto');
+            /*el button.data es lo que está en el button de editar*/
+            var button = $(event.relatedTarget)
+            var nombre_modal_editar = button.data('nombre')
+            var id_categorias = button.data('id_categorias')
+            var modal = $(this)
+            modal.find('.modal-body #nombre').val(nombre_modal_editar);
+            modal.find('.modal-body #id_categorias').val(id_categorias);
+        })
+
+        /*INICIO ventana modal para cambiar el estado de la categoria*/
+
+        $('#cambiarEstado').on('show.bs.modal', function(event) {
+
+            //console.log('modal abierto');
+
+            var button = $(event.relatedTarget)
+            var id_categorias = button.data('id_categorias')
+            var modal = $(this)
+            // modal.find('.modal-title').text('New message to ' + recipient)
+
+            modal.find('.modal-body #id_categorias').val(id_categorias);
+        })
+
+        /*FIN ventana modal para cambiar estado de la categoria*/
+    </script>
 
 </body>
 

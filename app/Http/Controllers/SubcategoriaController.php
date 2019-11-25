@@ -8,8 +8,6 @@ use App\Subcategoria;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use DB;
-Use Exception;
-use Auth;
 
 class SubcategoriaController extends Controller
 {
