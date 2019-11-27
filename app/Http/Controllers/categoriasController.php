@@ -122,4 +122,10 @@ class categoriasController extends Controller
             return Redirect::to("categorias")->with("danger","No se puede eliminar este registro porque esta asociado con otra asignación");
         }
     }
+
+    public function enviar(Categoria $categoria)
+    {
+        $categorias = Categoria::get();
+        return view('plantilla.layout',compact('categorias'));
+    }
 }

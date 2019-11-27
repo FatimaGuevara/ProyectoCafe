@@ -12,15 +12,21 @@
 */
 
 use Illuminate\Support\Facades\Route;
+use App\Categoria;
+use App\Subcategoria;
 
 Route::get('/', function () {
     return view('principal');
 });
 
 Route::get('/admin', function(){
-    return view('plantilla.dashboard');
-
+    $categorias = Categoria::get();
+    return view('plantilla.dashboard',compact('categorias'));
 });
+
+Route::get('/subcategoriaProducto/{id}','SubcategoriaController@enviar')->name('subpro');
+Route::get('/producto/{id}','ProductoController@enviar')->name('pro');
+
 Route::resource('categorias', 'categoriasController');
 Route::resource('producto', 'ProductoController');
 Route::resource('subcategoria', 'SubcategoriaController');

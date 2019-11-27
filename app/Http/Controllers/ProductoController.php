@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Producto;
+use App\Categoria;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use DB;
@@ -167,5 +168,14 @@ class ProductoController extends Controller
         } catch  (\Illuminate\Database\QueryException $e){
             return Redirect::to("producto")->with("danger","No se puede eliminar este registro porque esta asociado con otra asignación");
         }
+    }
+
+    public function enviar($id)
+    {
+            $categorias = Categoria::get();
+            $productos = Producto::where('subcategoria_id',$id)->get();
+            
+
+            return view('plantilla.producto',compact('categorias','productos'));
     }
 }

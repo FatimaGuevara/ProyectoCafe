@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Subcategoria;
+use App\Categoria;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use DB;
@@ -162,5 +163,13 @@ class SubcategoriaController extends Controller
         } catch  (\Illuminate\Database\QueryException $e){
             return Redirect::to("subcategoria")->with("danger","No se puede eliminar este registro porque esta asociado con otra asignación");
         }
+    }
+
+    public function enviar($id)
+    {
+            $categorias = Categoria::get();
+            $subcategorias = Subcategoria::where('categoria_id',$id)->get();
+            
+            return view('plantilla.subcategoria',compact('categorias','subcategorias'));
     }
 }
