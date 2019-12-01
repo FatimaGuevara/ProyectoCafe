@@ -9,8 +9,6 @@
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
 
-
-
     <link rel="stylesheet" href="/archivoscss/css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="/archivoscss/css/animate.css">
     
@@ -30,86 +28,91 @@
     <link rel="stylesheet" href="/archivoscss/css/icomoon.css">
     <link rel="stylesheet" href="/archivoscss/css/style.css">
   </head>
-
   @yield('Navigation')
   <body>
   	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Proyecto<small>Cafe</small></a>
+	      <a class="navbar-brand" href="/admin">Proyecto<small>Cafe</small></a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item active"><a href="#" class="nav-link">Inicio</a></li>
-			  <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menú</a>
+	          <li class="nav-item active"><a href="/admin" class="nav-link">Inicio</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
               <div class="dropdown-menu" aria-labelledby="dropdown04">
-              	@foreach($categorias as $lista)
-				  <a class="dropdown-item" href="{{ route ('subpro',$lista->id)}}">{{$lista->nombre}}</a>
-				@endforeach
+              @foreach($categorias as $lista)
+              	<a class="dropdown-item" href="{{route ('subpro',$lista->id)}}" >{{$lista->nombre}}</a>
+                @endforeach
               </div>
             </li>
+           
 
-	          <li class="nav-item"><a href="menu.html" class="nav-link">Eventos</a></li>
-	          <li class="nav-item"><a href="services.html" class="nav-link">Contactanos</a></li>
-	          <li class="nav-item"><a href="blog.html" class="nav-link">Quienes somos</a></li>
-	          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-	         
-	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-	          <li class="nav-item cart"><a href="cart.html" class="nav-link"><span class="icon icon-shopping_cart"></span><span class="bag d-flex justify-content-center align-items-center"><small>1</small></span></a></li>
+	          <li class="nav-item"><a href="#" class="nav-link">Eventos</a></li>
+	          <li class="nav-item"><a href=" {{ url('contactanos',$categorias)}}" class="nav-link">Contactanos</a></li>
+	          <li class="nav-item"><a href="{{url('conocenos',$categorias)}}" class="nav-link">Quienes Somos</a></li>
+            <li class="nav-item"><a href="blog.html" class="nav-link">Registrarse</a></li>
+            
+	          
 	        </ul>
 	      </div>
 		  </div>
 	  </nav>
+
     <!-- END nav -->
 
-	@yield('content')
+    @yield('content')
     <section class="home-slider owl-carousel">
+      <div class="slider-item" style="background-image: url(archivoscss/images/0.jpg);">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+
+            <div class="col-md-8 col-sm-12 text-center ftco-animate">
+            	<span h1 class="subheading">Proyecto Cafe</h1></span>
+              <h1 class="mb-4">Bienvenidos</h1>
+              <h1 class="mb-4">Sera un placer atenderle</h1>
+              <p class="mb-4 mb-md-5">Nos especializamos en brindarte el mejor cafe gurmet en los alrededores de la Universidad de El Salvador.</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
       <div class="slider-item" style="background-image: url(archivoscss/images/logo.jpg);">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+            </div>
 
           </div>
         </div>
       </div>
 
-      <div class="slider-item" style="background-image: url(archivoscss/images/bg_2.jpg);">
+      <div class="slider-item" style="background-image: url(archivoscss/images/metodos.jpg);">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+            </div>
 
           </div>
         </div>
       </div>
 
-      <div class="slider-item" style="background-image: url(archivoscss/images/bg_3.jpg);">
+      <div class="slider-item" style="background-image: url(archivoscss/images/cafe.jpg);">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+            </div>
 
           </div>
         </div>
       </div>
     </section>
-
-
-
-
     
+    @endyield
 
-
-    
-
-		
-
-    
-
-    
-
-		
-		
 
     <footer class="ftco-footer ftco-section img">
     	<div class="overlay"></div>
@@ -130,7 +133,7 @@
             <div class="ftco-footer-widget mb-4">
               <h2 class="ftco-heading-2">Recent Blog</h2>
               <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(archivoscss/images/image_1.jpg);"></a>
+                <a class="blog-img mr-4" style="background-image: url(images/image_1.jpg);"></a>
                 <div class="text">
                   <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
                   <div class="meta">
@@ -141,7 +144,7 @@
                 </div>
               </div>
               <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(archivoscss/images/image_2.jpg);"></a>
+                <a class="blog-img mr-4" style="background-image: url(images/image_2.jpg);"></a>
                 <div class="text">
                   <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
                   <div class="meta">
@@ -211,6 +214,7 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="/archivoscss/js/google-map.js"></script>
   <script src="/archivoscss/js/main.js"></script>
+    
     
   </body>
 </html>

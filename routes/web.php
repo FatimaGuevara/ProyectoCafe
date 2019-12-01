@@ -27,6 +27,10 @@ Route::get('/admin', function(){
 Route::get('/subcategoriaProducto/{id}','SubcategoriaController@enviar')->name('subpro');
 Route::get('/producto/{id}','ProductoController@enviar')->name('pro');
 
+Route::get('/contactanos/{id}', 'SubcategoriaController@mostrar')->name('contac');
+Route::get('/conocenos/{id}', 'SubcategoriaController@ver')->name('cono');
+
+
 Route::resource('categorias', 'categoriasController');
 Route::resource('producto', 'ProductoController');
 Route::resource('subcategoria', 'SubcategoriaController');

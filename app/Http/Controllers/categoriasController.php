@@ -128,4 +128,5 @@ class categoriasController extends Controller
         $categorias = Categoria::get();
         return view('plantilla.layout',compact('categorias'));
     }
+    
 }
