@@ -176,12 +176,12 @@ class SubcategoriaController extends Controller
     public function mostrar($id)
     {
         $categorias = Categoria::get();
-        return view('plantilla.contactanos',compact('categorias','subcategorias'));
+        return view('plantilla.contactanos',compact('categorias'));
     }
 
     public function ver($id)
     {
         $categorias = Categoria::get();
-        return view('plantilla.conocenos',compact('categorias','subcategorias'));
+        return view('plantilla.conocenos',compact('categorias'));
     }
 }

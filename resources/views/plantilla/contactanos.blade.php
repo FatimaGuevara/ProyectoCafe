@@ -14,7 +14,7 @@
 	    		<div class="info">
 	    			<div class="row no-gutters">
 	    				<div class="col-md-5 d-flex ftco-animate">
-                            <div align="center"></div> 
+                            <div aling="center"></div> 
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	    					<div class="icon"><span class="icon-phone"></span></div>
 	    					<div class="text">
@@ -43,7 +43,7 @@
     </section>
 
 <section>
-<center> <h1>Encuéntranos aquí:</h1>      </center> 
+<center> <h1>Encuéntranos aquí:</h1></center> 
  <div class="container-fluid">   
  <center>    
  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876.015859917536!2d-89.20826628516991!3d13.717489190369747!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f6331c2ea105f95%3A0xa78150acf57c9080!2sProyecto%20Caf%C3%A9!5e0!3m2!1ses!2ssv!4v1575160317180!5m2!1ses!2ssv" width="800" height="600" frameborder="0" style="border:0;" allowfullscreen=""></iframe>     

@@ -91,9 +91,9 @@
                     </li>
                     
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('evento/form')}}" onclick="event.preventDefault(); document.getElementById('evento-form').submit();"><i class="fa fa-users"></i>Eventos</a>
+                        <a class="nav-link" href="{{url('evento/index')}}" onclick="event.preventDefault(); document.getElementById('evento-form').submit();"><i class="fa fa-users"></i>Eventos</a>
 
-                        <form id="evento-form" action="{{url('evento/form')}}" method="GET" style="display: none;">
+                        <form id="evento-form" action="{{url('evento/index')}}" method="GET" style="display: none;">
                             {{csrf_field()}}
                         </form>
                     </li>
