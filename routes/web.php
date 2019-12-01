@@ -41,3 +41,11 @@ Route::resource('usuario', 'UsuarioController');
 Route::post('/login', 'Auth\LoginController@login')->name('login');*/
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//rutas evento
+Route::get('evento/form','ControllerEvent@form');
+Route::post('evento/create','ControllerEvent@create');
+Route::get('evento/details/{id}','ControllerEvent@details');
+Route::get('evento/index','ControllerEvent@index');
+Route::get('evento/index/{month}','ControllerEvent@index_month');
+Route::post('evento/calendario','ControllerEvent@calendario');

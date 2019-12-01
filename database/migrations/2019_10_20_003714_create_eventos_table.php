@@ -15,8 +15,8 @@ class CreateEventosTable extends Migration
     {
         Schema::create('eventos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('tipo_id')->unsigned();
-            $table->foreign('tipo_id')->references('id')->on('tipos')->onDelete('cascade');
+            //$table->integer('tipo_id')->unsigned();
+            //$table->foreign('tipo_id')->references('id')->on('tipos')->onDelete('cascade');
             $table->date('fecha')->nullable(True);
             $table->time('hora_inicio')->nullable(True);
             $table->time('hora_fin')->nullable(True);

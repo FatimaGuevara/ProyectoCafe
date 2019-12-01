@@ -89,6 +89,14 @@
                             {{csrf_field()}}
                         </form>
                     </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('evento/form')}}" onclick="event.preventDefault(); document.getElementById('evento-form').submit();"><i class="fa fa-users"></i>Eventos</a>
+
+                        <form id="evento-form" action="{{url('evento/form')}}" method="GET" style="display: none;">
+                            {{csrf_field()}}
+                        </form>
+                    </li>
 
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('usuario')}}" onclick="event.preventDefault(); document.getElementById('usuario-form').submit();"><i class="fa fa-users"></i> Usuarios</a>
