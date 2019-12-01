@@ -18,6 +18,7 @@
         		<div class="menu-entry">
     					<a href="#" class="img" style="background-image: url(public/storage/img/subcategoria/{{$sub->imagen}});"></a>
     					<div class="text text-center pt-4">
+						<img src="{{asset('storage/img/subcategoria/'.$sub->imagen)}}" id="imagen1" alt="{{$sub->nombre}}" class="img-responsive" width="100px" height="100px">
     						<h3><a href="{{ route ('pro',$sub->id)}}">{{$sub->nombre}}</a></h3>
     						<p>{{$sub->descripcion}}</p>
     					</div>

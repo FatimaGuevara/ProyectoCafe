@@ -18,6 +18,7 @@
         		<div class="menu-entry">
     					<a href="#" class="img" style="background-image: url(/public/storage/img/producto/{{$produc->imagen}});"></a>
     					<div class="text text-center pt-4">
+						<img src="{{asset('storage/img/producto/'.$produc->imagen)}}" id="imagen1" alt="{{$produc->nombre}}" class="img-responsive" width="100px" height="100px">
     						<h3><a href="#">{{$produc->nombre}}</a></h3>
     						<p>{{$produc->descripcion}}</p>
                             <p>${{$produc->precio}}</p>
