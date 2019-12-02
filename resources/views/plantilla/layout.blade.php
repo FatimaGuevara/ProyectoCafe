@@ -49,7 +49,7 @@
             </li>
            
 
-	          <li class="nav-item"><a href="#" class="nav-link">Eventos</a></li>
+	          <li class="nav-item"><a href="{{ asset('/evento/form') }}" class="nav-link">Eventos</a></li>
 	          <li class="nav-item"><a href=" {{ url('contactanos',$categorias)}}" class="nav-link">Contactanos</a></li>
 	          <li class="nav-item"><a href="{{url('conocenos',$categorias)}}" class="nav-link">Quienes Somos</a></li>
             <li class="nav-item"><a href="blog.html" class="nav-link">Registrarse</a></li>
@@ -110,9 +110,6 @@
         </div>
       </div>
     </section>
-    
-    @endyield
-
 
     <footer class="ftco-footer ftco-section img">
     	<div class="overlay"></div>
