@@ -1,4 +1,3 @@
-<html>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -30,18 +29,24 @@
     <link rel="stylesheet" href="/archivoscss/css/style.css">
   </head>
   <body>
-  <li class="nav-item active"><a href="/admin" class="nav-link">Inicio</a></li>
- 
-    <div class="container">
-      <div style="height:50px"></div>
-      
-      <p class="lead">
-      <h3 style="color:white";>Registrar Evento</h3>
-      <p style="color:white";>Formulario de evento</p>
-      
-      
-      <hr>
 
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="/admin">Proyecto<small>Cafe</small></a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item active"><a href="/admin" class="nav-link">Inicio</a></li>            
+	          
+	        </ul>
+	      </div>
+		  </div>
+	  </nav>
+  
+      <div style="height:50px"></div>
+     
       @if (count($errors) > 0)
         <div class="alert alert-danger">
          <button type="button" class="close" data-dismiss="alert">×</button>
@@ -60,7 +65,14 @@
        @endif
 
 
-      <div class="col-md-6">
+      <section class="ftco-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-8 ftco-animate">
+						
+							<h3 class="mb-4 billing-heading">Agregar Evento</h3>
+	          	<div class="row align-items-end">
+              <div class="col-md-6">
         <form action="{{ asset('/evento/create/') }}" method="post">
           @csrf
           <div class="fomr-group">
@@ -77,21 +89,83 @@
           </div>
           <br>
           <div class="fomr-group">
-            <label style="color:white">Hora de inicio</label>
-            <input type="time" class="form-control" name="hora_inicio" step="3600">
+            <label>Hora inicio</label>
+            <input type="time" class="form-control" name="hora_inicio"  min="8:00" maz="21:00" step="3600" >
+          <small>servicios desde las 8:00 am a 9:00pm</small>
           </div>
           <br>
           <div class="fomr-group">
-            <label style="color:white">Hora de finalización </label>
-            <input type="time" class="form-control" name="hora_fin" step="3600">
+            <label>Hora fin</label>
+            <input type="time" class="form-control" name="hora_fin" min="8:00" maz="21:00" step="3600">
+            <small>servicios desde las 8:00 am a 9:00pm</small>
           </div>
           <br>
           <input type="submit" class="btn btn-info" value="Guardar">
         </form>
-      </div>
+      </div>   
+    </section> 
+
+
 
     </div> <!-- /container -->
     <footer class="ftco-footer ftco-section img">
+    	<div class="overlay"></div>
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-lg-3 col-md-6 mb-5 mb-md-5">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Nosotros</h2>
+              <p>Espacio donde disfrutaras la mejores bebidas a base de cafè, preparadas con máquina de expresso o de método..</p>
+             
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-7 mb-md-7">
+            <div class="ftco-footer-widget mb-6">
+              <h2 class="ftco-heading-8">Nuestras redes sociales</h2>
+              <div class="block-20 mb-2 d-flex">
+              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-2">
+                <li class="ftco-animate"><a href="https://twitter.com/cafe_proyecto"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="https://www.facebook.com/proyectocafe/"><span class="icon-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="https://www.instagram.com/Proyecto_cafe/?fbclid=IwAR3QKgKFPmn1mEewzNXI2Yi-7pfhaUxleq-2NdRKqYVYsjV_TBbj8lpjIVE"><span class="icon-instagram"></span></a></li>
+              </ul>
+                <div class="text">
+                  
+                  <div class="meta">
+                                      </div>
+                </div>
+              </div>
+             
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-4 mb-4 mb-md-4">
+             <div class="ftco-footer-widget mb-4 ml-md-4">
+              <h2 class="ftco-heading-2">Ofrecemos</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="py-2 d-block">Cafe Gourmet</a></li>
+                <li><a href="#" class="py-2 d-block">Smothies</a></li>
+                <li><a href="#" class="py-2 d-block">Postres</a></li>
+                <li><a href="#" class="py-2 d-block">Cafe Helado</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-5 mb-md-5">
+            <div class="ftco-footer-widget mb-4">
+            	<h2 class="ftco-heading-2">Preguntanos</h2>
+            	<div class="block-23 mb-3">
+	              <ul>
+	                <li><span class="icon icon-map-marker"></span><span class="text">Colonia San Luis, Avenida Don Bosco, Edifico 349, local 2. Una cuadra abajo de gasolinera Puma ubicada por salida de derecho de la UES, o cuadra arriba de oficinas administrativas de ANDA.
+San Salvador</span></li>
+	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">7313-6921</span></a></li>
+	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">proyectocafe.sv@gmail.com</span></a></li>
+	              </ul>
+	            </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+
+<footer class="ftco-footer ftco-section img">
     	<div class="overlay"></div>
       <div class="container">
         <div class="row mb-5">
