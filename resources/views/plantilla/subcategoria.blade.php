@@ -17,7 +17,7 @@
     					<div class="text text-center pt-4">
 						<img src="{{asset('storage/img/subcategoria/'.$sub->imagen)}}" id="imagen1" alt="{{$sub->nombre}}" class="img-responsive" width="280px" height="280px">
     						<h3><a href="{{ route ('pro',$sub->id)}}">{{$sub->nombre}}</a></h3>
-    						<p>{{$sub->descripcion}}</p>
+    						<h4><p>{{$sub->descripcion}}</p></h4>
     					</div>
     				</div>
         	</div>

@@ -18,8 +18,8 @@
     					<div class="text text-center pt-4">
 						<img src="{{asset('storage/img/producto/'.$produc->imagen)}}" id="imagen1" alt="{{$produc->nombre}}" class="img-responsive" width="250px" height="250px">
     						<h3><a href="#">{{$produc->nombre}}</a></h3>
-    						<p>{{$produc->descripcion}}</p>
-                            <p>${{$produc->precio}}</p>
+    						<h4> <p>{{$produc->descripcion}}</p></h4>
+                            <h5> <p>${{$produc->precio}}</p></h5>
     					</div>
     				</div>
         	</div>
