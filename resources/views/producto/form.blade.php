@@ -31,14 +31,14 @@
      <div class="form-group row">
                 <label class="col-md-3 form-control-label" for="nombre">Precio</label>
                 <div class="col-md-9">
-                    <input type="number" id="precio" name="precio" class="form-control" placeholder="Ingrese el precio venta" required pattern="[0-9\.]{0,50}$" step="0.01">
+                    <input type="number" id="precio" name="precio" class="form-control" min=0 placeholder="Ingrese el precio venta" min=0 required pattern="[0-9\.]{0,50}$" step="0.01" >
                 </div>
     </div>
 
     <div class="form-group row">
                 <label class="col-md-3 form-control-label" for="nombre">Descripcion</label>
                 <div class="col-md-9">
-                    <input type="text" id="descripcion" name="descripcion" class="form-control" placeholder="Ingrese la nombre" required pattern="^[0-9a-zA-Z_,.áéíóúñ\s]{0,200}$">
+                    <input type="text" id="descripcion" name="descripcion" class="form-control" placeholder="Ingrese la nombre" >
                 </div>
     </div>
 

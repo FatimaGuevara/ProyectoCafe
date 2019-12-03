@@ -73,7 +73,7 @@
 							<h3 class="mb-4 billing-heading">Agregar Evento</h3>
 	          	<div class="row align-items-end">
               <div class="col-md-6">
-        <form action="{{ asset('/evento/create/') }}" method="post">
+        <form id="form" name="form" action="{{ asset('/evento/create/') }}" method="post">
           @csrf
           <div class="fomr-group">
             <label style="color:white">Nombre del evento</label>
@@ -83,24 +83,74 @@
             <label style="color:white">Descripcion del Evento</label>
             <input type="text" class="form-control" name="descripcion">
           </div>
-          <div class="fomr-group">
+
+          <div id=ContainerFecha class="fomr-group">
             <label style="color:white">Fecha</label>
-            <input type="date" class="form-control" name="fecha">
+            <input type="date" class="form-control" id="fecha" name="fecha" >
+            <label style="display: none" id="info" name="info" >Fecha menor que la fecha actual</label>
           </div>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+          <script>
+            
+            function generarToday()
+            {
+              var fechaMin = moment().format("YYYY-MM-DD");
+              document.getElementById("fecha").setAttribute("min", fechaMin);
+
+              console.log(fechaMin)
+            }
+            //function generarMin()
+            //{
+              
+              //var hoy = new Date();
+            //var hoySolo = (hoy.getFullYear()+"-"+(hoy.getMonth()+1)+"-" +(hoy.getDate()));
+              //var fin = Date.parse(hoySolo)
+             //console.log(fin);
+              //var fechaFormulario = document.getElementById("fecha").value
+              //document.getElementById("fecha").setAttribute("min", hoySolo);
+
+              //if(fechaFormulario < hoySolo)
+              //{
+                //document.getElementById("info").style.display="block";
+                //document.form.boton.disabled=true
+              //}
+              //if(fechaFormulario > hoySolo){
+                //document.getElementById("info").style.display="none";
+                //document.form.boton.disabled=false
+              //}
+
+              //console.log(fechaFormulario)
+              //console.log(fechaFormulario-hoySolo)
+              
+
+              //var fecha = document.getElementById("fecha").value;
+              //var fecha2 = generarToday()
+
+             // if(fecha2 <= fecha ){
+              
+               // 
+              //}else {
+               // document.getElementById("validar").style.display="none";
+              //}
+            
+            //}
+            setInterval('generarToday()', 1000);
+
+          </script>
           <br>
           <div class="fomr-group">
             <label>Hora inicio</label>
-            <input type="time" class="form-control" name="hora_inicio"  min="8:00" maz="21:00" step="3600" >
+            <input type="time" class="form-control" name="hora_inicio"  min="8:00" max="21:00" step="3600" >
           <small>servicios desde las 8:00 am a 9:00pm</small>
           </div>
           <br>
           <div class="fomr-group">
             <label>Hora fin</label>
-            <input type="time" class="form-control" name="hora_fin" min="8:00" maz="21:00" step="3600">
+            <input type="time" class="form-control" name="hora_fin" min="8:00" max="21:00" step="3600">
             <small>servicios desde las 8:00 am a 9:00pm</small>
           </div>
           <br>
-          <input type="submit" class="btn btn-info" value="Guardar">
+          <input id="boton" name="boton" type="submit" class="btn btn-info" value="Guardar">
         </form>
       </div>   
     </section> 
