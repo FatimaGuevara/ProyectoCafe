@@ -32,7 +32,7 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="/admin">Proyecto<small>Cafe</small></a>
+	      <a class="navbar-brand" href="/admin"><h3>Proyecto</h3><h4>Cafe</h4></a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
@@ -45,26 +45,6 @@
 		  </div>
 	  </nav>
   
-      <div style="height:50px"></div>
-     
-      @if (count($errors) > 0)
-        <div class="alert alert-danger">
-         <button type="button" class="close" data-dismiss="alert">×</button>
-         <ul>
-          @foreach ($errors->all() as $error)
-           <li>{{ $error }}</li>
-          @endforeach
-         </ul>
-        </div>
-       @endif
-       @if ($message = Session::get('success'))
-       <div class="alert alert-success alert-block">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-          <strong>{{ $message }}</strong>
-       </div>
-       @endif
-
-
       <section class="ftco-section">
       <div class="container">
         <div class="row">
@@ -141,19 +121,38 @@
           <div class="fomr-group">
             <label>Hora inicio</label>
             <input type="time" class="form-control" name="hora_inicio"  min="8:00" max="21:00" step="3600" >
-          <small>servicios desde las 8:00 am a 9:00pm</small>
+          <small>servicios desde las 8:00 am a 5:00 pm</small>
           </div>
           <br>
           <div class="fomr-group">
             <label>Hora fin</label>
             <input type="time" class="form-control" name="hora_fin" min="8:00" max="21:00" step="3600">
-            <small>servicios desde las 8:00 am a 9:00pm</small>
+            <small>servicios desde las 8:00 am a 5:00 pm</small>
           </div>
           <br>
           <input id="boton" name="boton" type="submit" class="btn btn-info" value="Guardar">
         </form>
       </div>   
     </section> 
+    <div style="height:50px"></div>
+     
+     @if (count($errors) > 0)
+       <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <ul>
+         @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+         @endforeach
+        </ul>
+       </div>
+      @endif
+      @if ($message = Session::get('success'))
+      <div class="alert alert-success alert-block">
+       <button type="button" class="close" data-dismiss="alert">×</button>
+         <strong>{{ $message }}</strong>
+      </div>
+      @endif
+
 
 
 
@@ -226,7 +225,7 @@ San Salvador</span></li>
           <div class="col-md-12 text-center">
 
             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | plantilla gracias a <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  <!--Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | plantilla gracias a <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
           </div>
         </div>

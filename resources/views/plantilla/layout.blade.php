@@ -32,7 +32,7 @@
   <body>
   	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="/admin">Proyecto<small>Cafe</small></a>
+	      <a class="navbar-brand" href="/admin"><h3>Proyecto</h3><h4>Cafe</h4></a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
@@ -63,6 +63,8 @@
     <!-- END nav -->
 
     @yield('content')
+    
+    <footer class="ftco-footer ftco-section img">
     <section class="home-slider owl-carousel">
       <div class="slider-item" style="background-image: url(archivoscss/images/0.jpg);">
       	<div class="overlay"></div>
@@ -111,7 +113,6 @@
       </div>
     </section>
 
-    <footer class="ftco-footer ftco-section img">
     	<div class="overlay"></div>
       <div class="container">
         <div class="row mb-5">
@@ -168,7 +169,7 @@
 	              <ul>
 	                <li><span class="icon icon-map-marker"></span><span class="text">Colonia San Luis, Avenida Don Bosco, Edifico 349, local 2. Una cuadra abajo de gasolinera Puma ubicada por salida de derecho de la UES, o cuadra arriba de oficinas administrativas de ANDA.
 San Salvador</span></li>
-	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">7313-6921</span></a></li>
+	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">2523-5692</span></a></li>
 	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">proyectocafe.sv@gmail.com</span></a></li>
 	              </ul>
 	            </div>
@@ -179,7 +180,7 @@ San Salvador</span></li>
           <div class="col-md-12 text-center">
 
             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | plantilla gracias a <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  <!--Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | plantilla gracias a <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
           </div>
         </div>
@@ -188,8 +189,7 @@ San Salvador</span></li>
     
   
 
-  <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+  
 
 
   <script src="/archivoscss/js/jquery.min.js"></script>

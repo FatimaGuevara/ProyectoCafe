@@ -18,7 +18,7 @@
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	    					<div class="icon"><span class="icon-phone"></span></div>
 	    					<div class="text">
-                                <h3>Telefono 7313-6921</h3>
+                                <h3>Telefono 2523-5692</h3>
 	    						<p>Puede hacer sus consultas o recervaciones a este numero</p>
 	    					</div>
 	    				</div>

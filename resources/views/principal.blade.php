@@ -105,6 +105,13 @@
                             {{csrf_field()}}
                         </form>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin" onclick="event.preventDefault(); document.getElementById('/admin').submit();"><i class="fa fa-users"></i> Principal</a>
+
+                        <form id="/admin" action="/admin" method="GET" style="display: none;">
+                            {{csrf_field()}}
+                        </form>
+                    </li>
 
                     <!--li class="nav-item">
                         <a class="nav-link" href="{{url('login')}}" onclick="event.preventDefault(); document.getElementById('login-form').submit();"><i class="fa fa-users"></i> Login</a>
@@ -124,10 +131,7 @@
         <!-- /Fin del contenido principal -->
     </div>
 
-    <footer class="app-footer">
-        <span><a href="http://www.webtraining-it.com/">webtraining-it.com</a> &copy; 2019</span>
-        <span class="ml-auto">Desarrollado por <a href="http://www.webtraining-it.com/">webtraining-it.com</a></span>
-    </footer>
+ 
 
     <!-- Bootstrap and necessary plugins -->
     <script src="{{asset('js/jquery.min.js')}}"></script>
