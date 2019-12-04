@@ -123,8 +123,9 @@
               <br>
               <br>
 
+              
               <!-- Step 1: Include the SDK para JavaScript on your page once, ideally right after the opening body tag. -->
-            <h2 class="ftco-heading-2">FACEBOOK</h2>
+           <h2 class="ftco-heading-2">FACEBOOK</h2>
             <div id="fb-root"></div>
             <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v5.0"></script>
 
@@ -155,10 +156,10 @@
              <div class="ftco-footer-widget mb-4 ml-md-4">
               <h2 class="ftco-heading-2">Ofrecemos</h2>
               <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">Cafe Gourmet</a></li>
-                <li><a href="#" class="py-2 d-block">Smothies</a></li>
-                <li><a href="#" class="py-2 d-block">Postres</a></li>
-                <li><a href="#" class="py-2 d-block">Cafe Helado</a></li>
+                <li><spam class="py-2 d-block">Cafe Gourmet</spam></li>
+                <li><spam href="#" class="py-2 d-block">Smothies</spam></li>
+                <li><spam href="#" class="py-2 d-block">Postres</spam></li>
+                <li><spam href="#" class="py-2 d-block">Cafe Helado</spam></li>
               </ul>
             </div>
           </div>
@@ -169,15 +170,15 @@
 	              <ul>
 	                <li><span class="icon icon-map-marker"></span><span class="text">Colonia San Luis, Avenida Don Bosco, Edifico 349, local 2. Una cuadra abajo de gasolinera Puma ubicada por salida de derecho de la UES, o cuadra arriba de oficinas administrativas de ANDA.
 San Salvador</span></li>
-	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">2523-5692</span></a></li>
-	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">proyectocafe.sv@gmail.com</span></a></li>
+	                <li><span class="icon icon-phone"></span><span class="text">2523-5692</span></li>
+	                <li><span class="icon icon-envelope"></span><span class="text">proyectocafe.sv@gmail.com</span></li>
 	              </ul>
 	            </div>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-12 text-center">
+        <div class="">
+          <div class="">
 
             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
   <!--Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | plantilla gracias a <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
