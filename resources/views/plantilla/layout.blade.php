@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <title>Proyecto Cafe</title>
@@ -32,13 +32,13 @@
   <body>
   	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="/admin"><h3>Proyecto</h3><h4>Cafe</h4></a>
+	      <a class="navbar-brand" href="/"><h3>Proyecto</h3><h4>Cafe</h4></a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item active"><a href="/admin" class="nav-link">Inicio</a></li>
+	          <li class="nav-item active"><a href="/" class="nav-link">Inicio</a></li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
               <div class="dropdown-menu" aria-labelledby="dropdown04">
@@ -52,8 +52,8 @@
 	          <li class="nav-item"><a href="{{ asset('/evento/form') }}" class="nav-link">Eventos</a></li>
 	          <li class="nav-item"><a href=" {{ url('contactanos',$categorias)}}" class="nav-link">Contactanos</a></li>
 	          <li class="nav-item"><a href="{{url('conocenos',$categorias)}}" class="nav-link">Quienes Somos</a></li>
-            <li class="nav-item"><a href="blog.html" class="nav-link">Registrarse</a></li>
-            
+            	  <li class="nav-item"><a href="blog.html" class="nav-link">Registrarse</a></li>
+            	  <li class="nav-item"><a href="{{ route ('log') }}" class="nav-link">Ingresar</a></li>
 	          
 	        </ul>
 	      </div>

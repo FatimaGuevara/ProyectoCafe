@@ -35,18 +35,23 @@
 
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                    <img src="img/avatars/6.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
-                    <span class="d-md-down-none">usuario </span>
+                    <img src="img/avatars/6.jpg" class="img-avatar">
+                    <span class="d-md-down-none">{{Auth::user()->usuario}}</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <div class="dropdown-header text-center">
-                        <strong>Cuenta</strong>
+                        @if (Auth::user()->rol_id == 1)
+                            <strong>administrador</strong>
+                        @elseif (Auth::user()->rol_id == 2)
+                            <strong>usuario</strong>
+                        @endif
                     </div>
-                    <a class="dropdown-item" href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        <i class="fa fa-lock"></i> Cerrar sesión</a>
+                    <a class="dropdown-item" href="{{route('logout')}}" 
+                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <i class="fa fa-lock"></i> Cerrar sesión</a>
 
-                    <form id="logout-form" action="" method="POST" style="display: none;">
-
+                    <form id="logout-form" action="{{route('logout')}}" method="POST" style="display: none;">
+                    {{ csrf_field() }} 
                     </form>
                 </div>
             </li>
@@ -54,8 +59,9 @@
     </header>
 
     <div class="app-body">
-
-        <div class="sidebar">
+        @if(Auth::check())
+            @if (Auth::user()->rol_id == 1)
+            <div class="sidebar">
             <nav class="sidebar-nav">
                 <ul class="nav">
                     <li class="nav-item">
@@ -89,7 +95,7 @@
                             {{csrf_field()}}
                         </form>
                     </li>
-                    
+
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('evento/index')}}" onclick="event.preventDefault(); document.getElementById('evento-form').submit();"><i class="fa fa-users"></i>Eventos</a>
 
@@ -99,39 +105,34 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('usuario')}}" onclick="event.preventDefault(); document.getElementById('usuario-form').submit();"><i class="fa fa-users"></i> Usuarios</a>
+                        <a class="nav-link" href="{{url('user')}}" onclick="event.preventDefault(); document.getElementById('user-form').submit();"><i class="fa fa-users"></i> Usuarios</a>
 
-                        <form id="usuario-form" action="{{url('usuario')}}" method="GET" style="display: none;">
+                        <form id="user-form" action="{{url('user')}}" method="GET" style="display: none;">
                             {{csrf_field()}}
                         </form>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/admin" onclick="event.preventDefault(); document.getElementById('/admin').submit();"><i class="fa fa-users"></i> Principal</a>
+                        <a class="nav-link" href="/" onclick="event.preventDefault(); document.getElementById('/').submit();"><i class="fa fa-users"></i> Principal</a>
 
-                        <form id="/admin" action="/admin" method="GET" style="display: none;">
+                        <form id="/" action="/" method="GET" style="display: none;">
                             {{csrf_field()}}
                         </form>
                     </li>
-
-                    <!--li class="nav-item">
-                        <a class="nav-link" href="{{url('login')}}" onclick="event.preventDefault(); document.getElementById('login-form').submit();"><i class="fa fa-users"></i> Login</a>
-
-                        <form id="usuario-form" action="{{url('login')}}" method="GET" style="display: none;">
-                            {{csrf_field()}}
-                        </form>
-                    </li-->
 
                 </ul>
             </nav>
             <button class="sidebar-minimizer brand-minimizer" type="button"></button>
         </div>
+        @endif
+        @endif
+        
 
         <!-- Contenido Principal -->
         @yield('contenido')
         <!-- /Fin del contenido principal -->
     </div>
 
- 
+
 
     <!-- Bootstrap and necessary plugins -->
     <script src="{{asset('js/jquery.min.js')}}"></script>
@@ -225,6 +226,7 @@
             /*el button.data es lo que está en el button de editar*/
             var button = $(event.relatedTarget)
             var nombre_modal_editar = button.data('nombre')
+            var usuario_modal_editar = button.data('usuario')
             var email_modal_editar = button.data('email')
             /*este rol_id_modal_editar selecciona el rol*/
             var rol_id_modal_editar = button.data('rol_id')
@@ -233,6 +235,7 @@
             // modal.find('.modal-title').text('New message to ' + recipient)
             /*los # son los id que se encuentran en el formulario*/
             modal.find('.modal-body #nombre').val(nombre_modal_editar);
+            modal.find('.modal-body #usuario').val(usuario_modal_editar);
             modal.find('.modal-body #email').val(email_modal_editar);
             modal.find('.modal-body #id').val(rol_id_modal_editar);
             // modal.find('.modal-body #subirImagen').html("<img src="img/producto/imagen_modal_editar">");

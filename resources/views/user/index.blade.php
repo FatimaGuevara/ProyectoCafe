@@ -3,7 +3,7 @@
 <main class="main">
             <!-- Breadcrumb -->
             <ol class="breadcrumb">
-                <li class="breadcrumb-item active"><a href="/">PROYECTOS CAFE</a></li>
+                <li class="breadcrumb-item active"><a href="/">Proyecto Cafe</a></li>
             </ol>
             <div class="container-fluid">
                 <!-- Ejemplo de tabla Listado -->
@@ -19,7 +19,7 @@
                     <div class="card-body">
                         <div class="form-group row">
                             <div class="col-md-6">
-                            {!!Form::open(array('url'=>'usuario','method'=>'GET','autocomplete'=>'off','role'=>'search'))!!} 
+                            {!!Form::open(array('url'=>'user','method'=>'GET','autocomplete'=>'off','role'=>'search'))!!} 
                                 <div class="input-group">
                                    
                                     <input type="text" name="buscarTexto" class="form-control" placeholder="Buscar texto" value="{{$buscarTexto}}">
@@ -33,9 +33,10 @@
                                 <tr class="bg-primary">
                                    
                                     <th>Nombre</th>
+                                    <th>Usuario</th>
                                     <th>Email</th>
                                     <th>Rol</th>
-                                    <th>Acciones</th>
+                                    <th>Accion</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -45,18 +46,19 @@
                                 <tr>
                                     
                                     <td>{{$user->nombre}}</td>
+                                    <td>{{$user->usuario}}</td>
                                     <td>{{$user->email}}</td>
                                     <td>{{$user->rol}}</td>
-                            
+
                                     <td>
-                                        <button type="button" class="btn btn-info btn-md" data-id_usuario="{{$user->id}}" data-nombre="{{$user->nombre}}" data-email="{{$user->email}}" data-rol_id="{{$user->rol_id}}" data-toggle="modal" data-target="#abrirmodalEditarusu">
-                                            <i class="fa fa-edit fa-2x"></i> Editar
+                                        <button type="button" class="btn btn-info btn-md" data-id_usuario="{{$user->id}}" data-nombre="{{$user->nombre}}"  data-usuario="{{$user->usuario}}"  data-email="{{$user->email}}" data-rol_id="{{$user->rol_id}}"  data-toggle="modal" data-target="#abrirmodalEditarusu">
+                                          <i class="fa fa-edit fa-2x"></i> Editar
                                         </button> &nbsp;
                                         <button type="button" class="btn btn-danger btn-sm" data-id_usuario="{{$user->id}}" data-toggle="modal" data-target="#cambiarEstado">
                                             <i class="fa fa-times fa-2x" ></i>Eliminar
                                         </button> &nbsp;
                                     </td>
-
+                                    
                                 </tr>
 
                                 @endforeach
@@ -84,11 +86,11 @@
                         <div class="modal-body">
                              
 
-                            <form action="{{route('usuario.store')}}" method="post" class="form-horizontal" >
+                            <form action="{{route('user.store')}}" method="post" class="form-horizontal" enctype="multipart/form-data" >
                                
                                 {{csrf_field()}}
                                 
-                                @include('usuario.form')
+                                @include('user.form')
 
                             </form>
                         </div>
@@ -115,14 +117,14 @@
                         <div class="modal-body">
                              
 
-                            <form action="{{route('usuario.update','test')}}" method="post" class="form-horizontal" enctype="multipart/form-data">
+                            <form action="{{route('user.update','test')}}" method="post" class="form-horizontal" enctype="multipart/form-data">
                                 
                                 {{method_field('patch')}}
                                 {{csrf_field()}}
 
                                 <input type="hidden" id="id_usuario" name="id_usuario" value="">
                                 
-                                @include('usuario.form')
+                                @include('user.form')
 
                             </form>
                         </div>
@@ -135,22 +137,25 @@
             <!--Fin del modal-->
 
             
-            <!-- Inicio del modal Eliminar -->
-            <div class="modal fade" id="cambiarEstado" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+             <!-- Inicio del modal Cambiar Estado del usuario -->
+             <div class="modal fade" id="cambiarEstado" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
                 <div class="modal-dialog modal-danger" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title">Eliminar usuario</h4>
+                            <h4 class="modal-title">Cambiar Estado del Usuario</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">×</span>
+                            </button>
                         </div>
 
                     <div class="modal-body">
-                        <form action="{{route('usuario.destroy','test')}}" method="POST">
+                        <form action="{{route('user.destroy','test')}}" method="POST">
                          {{method_field('delete')}}
                          {{csrf_field()}} 
 
                             <input type="hidden" id="id_usuario" name="id_usuario" value="">
 
-                                <p>Estas seguro de Eliminar el usuario?</p>
+                                <p>Estas seguro de cambiar el estado?</p>
         
 
                             <div class="modal-footer">

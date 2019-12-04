@@ -16,8 +16,8 @@ class LoginController extends Controller
 
         $this->validateLogin($request);      
  
-         if (Auth::attempt(['usuario' => $request->usuario,'password' => $request->password,'condicion'=>1])){
-             return redirect('/home');
+         if (Auth::attempt(['usuario' => $request->usuario,'password' => $request->password])){
+            return redirect('/home');
          }
 
          return back()->withErrors(['usuario' => trans('auth.failed')])
@@ -29,6 +29,12 @@ class LoginController extends Controller
             'usuario' => 'required|string',
             'password' => 'required|string'
         ]);
+    }
+
+    public function logout(Request $request){
+        Auth::logout();
+        $request->session()->invalidate();
+        return redirect('/');
     }
 
 }
