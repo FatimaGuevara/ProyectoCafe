@@ -88,10 +88,6 @@
             <div class="col-md-9">
             
                 <select class="form-control" name="id" id="id">
-                                                
-                <option value="0" disabled>Seleccione</option>
-
-                <option value="1" >Administrador</option>
 
                 <option value="2" >Usuario</option>
 

@@ -141,6 +141,13 @@
                             {{csrf_field()}}
                         </form>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/" onclick="event.preventDefault(); document.getElementById('/').submit();"><i class="fa fa-users"></i> Principal</a>
+
+                        <form id="/" action="/" method="GET" style="display: none;">
+                            {{csrf_field()}}
+                        </form>
+                    </li>
                 </ul>
             </nav>
             <button class="sidebar-minimizer brand-minimizer" type="button"></button>
