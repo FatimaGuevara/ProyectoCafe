@@ -52,6 +52,28 @@ class UserController extends Controller
             return Redirect::to("user"); 
     }
 
+    public function create(Request $request)
+    {
+        //
+        $this->validate($request, [
+            'nombre'     =>  'required',
+            'usuario'  =>  'required',
+            'email'     =>  'required',
+            'password'  =>  'required',
+            'id' =>  'required'
+           ]);
+      
+           $user= new User();
+           $user->nombre = $request->nombre;
+           $user->usuario = $request->usuario;
+           $user->email = $request->email;
+           $user->password = bcrypt( $request->password);
+           $user->rol_id = $request->id;  
+           
+               $user->save();
+               return Redirect::to("/"); 
+    }
+
     public function update(Request $request)
     {
         //
@@ -78,6 +100,10 @@ class UserController extends Controller
             return Redirect::to("user")->with("danger","No se puede eliminar este registro porque esta asociado con otra asignación");
         }
     }
+
+    public function form(){
+        return view("user/form1");
+      }
 
 }
 

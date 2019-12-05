@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <title>Proyecto Cafe</title>
@@ -28,91 +28,119 @@
     <link rel="stylesheet" href="/archivoscss/css/icomoon.css">
     <link rel="stylesheet" href="/archivoscss/css/style.css">
   </head>
-  @yield('Navigation')
   <body>
-  	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="/"><h3>Proyecto</h3><h4>Cafe</h4></a>
+	      <a class="navbar-brand" href="/admin"><h3>Proyecto</h3><h4>Cafe</h4></a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item active"><a href="/" class="nav-link">Inicio</a></li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
-              <div class="dropdown-menu" aria-labelledby="dropdown04">
-              @foreach($categorias as $lista)
-              	<a class="dropdown-item" href="{{route ('subpro',$lista->id)}}" >{{$lista->nombre}}</a>
-                @endforeach
-              </div>
-            </li>
-           
-
-	          <li class="nav-item"><a href="{{ asset('/evento/form') }}" class="nav-link">Eventos</a></li>
-	          <li class="nav-item"><a href=" {{ url('contactanos',$categorias)}}" class="nav-link">Contactanos</a></li>
-	          <li class="nav-item"><a href="{{url('conocenos',$categorias)}}" class="nav-link">Quienes Somos</a></li>
-            <li class="nav-item"><a href="{{ asset('/user/form1') }}" class="nav-link" >Registrarse</a></li>
-            <li class="nav-item"><a href="{{ route ('log') }}" class="nav-link">Ingresar</a></li>
+	          <li class="nav-item active"><a href="/" class="nav-link">Inicio</a></li>            
 	          
 	        </ul>
 	      </div>
 		  </div>
 	  </nav>
-
-    <!-- END nav -->
-
-    @yield('content')
+  
+      <section class="ftco-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-8 ftco-animate">
+						
+							<h3 class="mb-4 billing-heading">Agregar Usuario</h3>
+	          	<div class="row align-items-end">
+              <div class="col-md-6">
+        <form id="form" name="form" action="{{asset('user.create')}}" method="get" class="form-horizontal" enctype="multipart/form-data">
+        {{csrf_field()}}
+          
+          <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="nombre">Nombre</label>
+                <div class="col-md-9">
+                    <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Ingrese el Nombre" required pattern="^[a-zA-Z_áéíóúñ\s]{0,30}$">
+                    
+                </div>
+    </div>
     
+    <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="usuario">Usuario</label>
+                <div class="col-md-9">
+                  
+                    <input type="text" id="usuario" name="usuario" class="form-control" placeholder="Ingrese el usuario" pattern="^[a-zA-Z_áéíóúñ\s]{0,30}$">
+                       
+                </div>
+    </div>
+
+    <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="email">Correo</label>
+                <div class="col-md-9">
+                  
+                <input type="email" class="form-control" id="email" name="email" placeholder="Ingrese el correo">
+                       
+                </div>
+    </div>
+
+    <div class="form-group row">
+            <label class="col-md-3 form-control-label" for="id">Rol</label>
+            
+            <div class="col-md-9">
+            
+                <select class="form-control" name="id" id="id">
+                                                
+                <option value="0" disabled>Seleccione</option>
+
+                <option value="1" >Administrador</option>
+
+                <option value="2" >Usuario</option>
+
+                </select>
+            
+            </div>
+                                       
+    </div>
+
+     <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="password">Password</label>
+                <div class="col-md-9">
+                  
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Ingrese el password" required>
+                       
+                </div>
+    </div>
+
+
+          </script>
+          <br>
+          <input id="boton" name="boton" type="submit" class="btn btn-info" value="Guardar">
+        </form>
+      </div>   
+    </section> 
+    <div style="height:50px"></div>
+     
+     @if (count($errors) > 0)
+       <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <ul>
+         @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+         @endforeach
+        </ul>
+       </div>
+      @endif
+      @if ($message = Session::get('success'))
+      <div class="alert alert-success alert-block">
+       <button type="button" class="close" data-dismiss="alert">×</button>
+         <strong>{{ $message }}</strong>
+      </div>
+      @endif
+
+
+
+
+    </div> <!-- /container -->
     <footer class="ftco-footer ftco-section img">
-    <section class="home-slider owl-carousel">
-      <div class="slider-item" style="background-image: url(archivoscss/images/0.jpg);">
-      	<div class="overlay"></div>
-        <div class="container">
-          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
-
-            <div class="col-md-8 col-sm-12 text-center ftco-animate">
-            	<span h1 class="subheading">Proyecto Cafe</h1></span>
-              <h1 class="mb-4">Bienvenidos</h1>
-              <h1 class="mb-4">Sera un placer atenderle</h1>
-              <p class="mb-4 mb-md-5">Nos especializamos en brindarte el mejor cafe gurmet en los alrededores de la Universidad de El Salvador.</p>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <div class="slider-item" style="background-image: url(archivoscss/images/logo.jpg);">
-      	<div class="overlay"></div>
-        <div class="container">
-          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <div class="slider-item" style="background-image: url(archivoscss/images/metodos.jpg);">
-      	<div class="overlay"></div>
-        <div class="container">
-          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <div class="slider-item" style="background-image: url(archivoscss/images/cafe.jpg);">
-      	<div class="overlay"></div>
-        <div class="container">
-          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </section>
-
     	<div class="overlay"></div>
       <div class="container">
         <div class="row mb-5">
@@ -120,11 +148,19 @@
             <div class="ftco-footer-widget mb-4">
               <h2 class="ftco-heading-2">Nosotros</h2>
               <p>Espacio donde disfrutaras la mejores bebidas a base de cafè, preparadas con máquina de expresso o de método..</p>
-              <br>
-              <br>
+             <br>
+             <br>
+             
+             <!-- Step 1: Include the SDK para JavaScript on your page once, ideally right after the opening body tag. -->
+            <h2 class="ftco-heading-2">FACEBOOK</h2>
+            <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v5.0"></script>
+
+            <!-- Step 2: Place this code wherever you want the plugin to appear on your page. -->
+            <div class="fb-page" data-href="https://www.facebook.com/proyectocafe/" data-tabs="timeline" data-width="350" data-height="500" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/proyectocafe/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/proyectocafe/">Proyecto Cafe</a></blockquote></div>
             </div>
           </div>
-        
+
           <div class="col-lg-4 col-md-6 mb-7 mb-md-7">
             <div class="ftco-footer-widget mb-6">
               <h2 class="ftco-heading-8">Nuestras redes sociales</h2>
@@ -148,9 +184,9 @@
               <h2 class="ftco-heading-2">Ofrecemos</h2>
               <ul class="list-unstyled">
                 <li><spam class="py-2 d-block">Cafe Gourmet</spam></li>
-                <li><spam href="#" class="py-2 d-block">Smothies</spam></li>
-                <li><spam href="#" class="py-2 d-block">Postres</spam></li>
-                <li><spam href="#" class="py-2 d-block">Cafe Helado</spam></li>
+                <li><spam  class="py-2 d-block">Smothies</spam></li>
+                <li><spam  class="py-2 d-block">Postres</spam></li>
+                <li><spam class="py-2 d-block">Cafe Helado</spam></li>
               </ul>
             </div>
           </div>
@@ -168,12 +204,6 @@ San Salvador</span></li>
             </div>
           </div>
         </div>
-        <!-- Step 1: Include the SDK para JavaScript on your page once, ideally right after the opening body tag. -->
-        <h2 style="color:white" class="ftco-heading-2">COMENTARIOS DE FACEBOOK</h2>
-           <div id = "fb-root" > </div> <script async defer crossorigin = "anónimo" src = "https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v5.0" > </script> 
-
-            <!-- Step 2: Place this code wherever you want the plugin to appear on your page. -->
-            <div class = "fb-comments" data-href = "https://www.facebook.com/pg/proyectocafe/community/?ref=page_internal" data-width = "600" data-numposts = "5" > </div> 
         <div class="">
           <div class="">
 
@@ -183,9 +213,12 @@ San Salvador</span></li>
           </div>
         </div>
       </div>
-      
     </footer>
     
+  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
   <script src="/archivoscss/js/jquery.min.js"></script>

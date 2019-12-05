@@ -123,6 +123,28 @@
             </nav>
             <button class="sidebar-minimizer brand-minimizer" type="button"></button>
         </div>
+        @elseif (Auth::user()->rol_id == 2)
+        <div class="sidebar">
+            <nav class="sidebar-nav">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#"><i class="icon-speedometer"></i> Proyecto Cafe</a>
+                    </li>
+                    <li class="nav-title">
+                        Menú
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('evento/index')}}" onclick="event.preventDefault(); document.getElementById('evento-form').submit();"><i class="fa fa-users"></i>Eventos</a>
+
+                        <form id="evento-form" action="{{url('evento/index')}}" method="GET" style="display: none;">
+                            {{csrf_field()}}
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+            <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+        </div>        
         @endif
         @endif
         

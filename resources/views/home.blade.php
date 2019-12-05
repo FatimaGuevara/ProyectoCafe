@@ -14,7 +14,7 @@
         <h2 align=center>al area de</h2>
         <h2 align=center>Administracion</h2>
         @elseif (Auth::user()->rol_id == 2)
-        <h2 align=center>Esta seccion es para el administrador por favor cierre sesion</h2>
+        <h2 align=center>Esta seccion es para la creacion de eventos Bienvenido</h2>
         @endif
         @endif
 
