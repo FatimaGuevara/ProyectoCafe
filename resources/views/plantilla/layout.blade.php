@@ -122,18 +122,9 @@
               <p>Espacio donde disfrutaras la mejores bebidas a base de cafè, preparadas con máquina de expresso o de método..</p>
               <br>
               <br>
-
-              
-              <!-- Step 1: Include the SDK para JavaScript on your page once, ideally right after the opening body tag. -->
-           <h2 class="ftco-heading-2">FACEBOOK</h2>
-            <div id="fb-root"></div>
-            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v5.0"></script>
-
-            <!-- Step 2: Place this code wherever you want the plugin to appear on your page. -->
-            <div class="fb-page" data-href="https://www.facebook.com/proyectocafe/" data-tabs="timeline" data-width="350" data-height="500" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/proyectocafe/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/proyectocafe/">Proyecto Cafe</a></blockquote></div>
-
             </div>
           </div>
+        
           <div class="col-lg-4 col-md-6 mb-7 mb-md-7">
             <div class="ftco-footer-widget mb-6">
               <h2 class="ftco-heading-8">Nuestras redes sociales</h2>
@@ -177,6 +168,12 @@ San Salvador</span></li>
             </div>
           </div>
         </div>
+        <!-- Step 1: Include the SDK para JavaScript on your page once, ideally right after the opening body tag. -->
+        <h2 style="color:white" class="ftco-heading-2">COMENTARIOS DE FACEBOOK</h2>
+           <div id = "fb-root" > </div> <script async defer crossorigin = "anónimo" src = "https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v5.0" > </script> 
+
+            <!-- Step 2: Place this code wherever you want the plugin to appear on your page. -->
+            <div class = "fb-comments" data-href = "https://www.facebook.com/pg/proyectocafe/community/?ref=page_internal" data-width = "600" data-numposts = "5" > </div> 
         <div class="">
           <div class="">
 
@@ -186,11 +183,9 @@ San Salvador</span></li>
           </div>
         </div>
       </div>
+      
     </footer>
     
-  
-
-  
 
 
   <script src="/archivoscss/js/jquery.min.js"></script>
